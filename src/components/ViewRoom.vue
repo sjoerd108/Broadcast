@@ -1,5 +1,5 @@
 <template>
-<room :stream="stream" :isHost="false" class="room"></room>
+<room :stream="stream" :roomSettings="roomSettings" :isHost="false" class="room"></room>
 </template>
 
 <script>
@@ -11,7 +11,8 @@ import UuidV4 from 'uuid/v4'
 export default {
     data: () => {
         return {
-            stream: null
+            stream: null,
+            roomSettings: null
         }
     },
     components: {
@@ -36,7 +37,11 @@ export default {
                 alert('That room ID does not exist.');
                 self.$router.push('/');
             });
-            dataConnection.on('data', console.log);
+            dataConnection.on('data', (data) => {
+                if(data.roomSettings) {
+                    self.roomSettings = data.roomSettings;
+                }
+            });
         });
 
         peer.on('call', (mediaConnection) => {
