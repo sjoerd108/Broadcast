@@ -59,8 +59,9 @@ export default {
             routeAfterAccept: null,
         }
     },
-    mounted: () => {
+    mounted: function() {
         dialog = new Mdc.dialog.MDCDialog(document.querySelector('#my-mdc-dialog'));
+        this.$globalEventBus.$emit('changeTitle', 'Broadcast - welcome');
     },
     methods: {
         hostRoom: function() {

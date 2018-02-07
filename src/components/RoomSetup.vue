@@ -92,6 +92,7 @@ export default {
         } else {
             this.audio = false;
         }
+        this.$globalEventBus.$emit('changeTitle', 'Broadcast - setup');
     },
     mounted: function() {
         slider = new Mdc.slider.MDCSlider(document.querySelector('.mdc-slider'));
