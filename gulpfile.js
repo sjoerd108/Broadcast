@@ -9,7 +9,7 @@ gulp.task('electron-build', () => {
     browserify()
         .transform('electron-renderify')
         .transform('vueify')
-        .transform('babelify', {presets: ['env']})
+        .transform('babelify')
         .add(path.join(__dirname, 'src/main.js'))
         .bundle()
         .pipe(fs.createWriteStream('./dist/build.js'));
