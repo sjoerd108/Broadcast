@@ -13,7 +13,7 @@
     </div>
     <button @click="viewRoom" class="mdc-button mdc-button--raised" data-mdc-auto-init="MDCRipple">Join room</button>
 
-    <aside id="my-mdc-dialog" class="mdc-dialog" role="alertdialog" aria-labelledby="my-mdc-dialog-label" aria-describedby="my-mdc-dialog-description">
+    <aside id="warning" class="mdc-dialog" role="alertdialog" aria-labelledby="my-mdc-dialog-label" aria-describedby="my-mdc-dialog-description">
         <div class="mdc-dialog__surface">
             <header class="mdc-dialog__header">
                 <h2 id="my-mdc-dialog-label" class="mdc-dialog__header__title">Before you proceed...</h2>
@@ -60,7 +60,7 @@ export default {
         }
     },
     mounted: function() {
-        dialog = new Mdc.dialog.MDCDialog(document.querySelector('#my-mdc-dialog'));
+        dialog = new Mdc.dialog.MDCDialog(document.querySelector('#warning'));
         this.$globalEventBus.$emit('changeTitle', 'Broadcast - welcome');
     },
     methods: {
