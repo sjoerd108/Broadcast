@@ -12,6 +12,8 @@ import Peer from 'peerjs';
 import GUM from '../js/GUM.js';
 import UuidV4 from 'uuid/v4'
 
+const clipboard = require('electron').clipboard;
+
 export default {
     name: 'room-host',
     data: () => {
@@ -53,6 +55,8 @@ export default {
             peer.on('open', () => {
                 console.log('Connection open!');
                 self.$globalEventBus.$emit('changeTitle', 'Broadcast - Room: ' + roomId);
+                clipboard.writeText(roomId);
+                self.$globalEventBus.$emit('toastMessage', 'Room ID copied to clipboard!');
             });
 
             peer.on('connection', (dataConnection) => {
