@@ -20,6 +20,8 @@ const router = new VueRouter({
     routes: routes
 });
 
+Vue.prototype.$globalEventBus = new Vue();
+
 new Vue({
     router,
     el: '#app',
