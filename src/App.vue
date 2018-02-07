@@ -2,16 +2,19 @@
 <div id="app" class="mdc-theme--dark">
     <toolbar></toolbar>
     <router-view class="router-view"></router-view>
+    <snackbar></snackbar>
 </div>
 </template>
 
 <script>
 import Toolbar from './components/Toolbar.vue';
+import Snackbar from './components/Snackbar.vue';
 
 export default {
     name: 'app',
     components: {
-        Toolbar
+        Toolbar,
+        Snackbar
     }
 }
 </script>
