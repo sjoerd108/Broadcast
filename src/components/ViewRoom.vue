@@ -1,0 +1,54 @@
+<template>
+<room :stream="stream" :isHost="false" class="room"></room>
+</template>
+
+<script>
+import Room from './Room.vue';
+
+import Peer from 'peerjs';
+import UuidV4 from 'uuid/v4'
+
+export default {
+    data: () => {
+        return {
+            stream: null
+        }
+    },
+    components: {
+        Room
+    },
+    mounted: function() {
+        let self = this;
+        let roomId = this.$route.params.room;
+        console.log('Connecting with: ' + roomId);
+
+        let peer = new Peer(UuidV4().toUpperCase(), {
+            host: 'sjoerddal.nl',
+            secure: true,
+            port: 9000,
+            debug: 3
+        });
+
+        peer.on('open', () => {
+            console.log('Connection open!');
+            let dataConnection = peer.connect(roomId);
+            dataConnection.on('error', () => {
+                alert('That room ID does not exist.');
+                self.$router.push('/');
+            });
+            dataConnection.on('data', console.log);
+        });
+
+        peer.on('call', (mediaConnection) => {
+            mediaConnection.answer(null);
+            mediaConnection.on('stream', (stream) => {
+                self.stream = stream;
+            });
+            mediaConnection.on('close', () => {
+                alert('Host has stopped streaming.');
+                self.$router.push('/');
+            });
+        });
+    }
+}
+</script>
