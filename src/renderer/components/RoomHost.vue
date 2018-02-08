@@ -6,10 +6,10 @@
 </template>
 
 <script>
-import RoomSetup from './RoomSetup.vue';
-import Room from './Room.vue';
+import RoomSetup from './RoomSetup';
+import Room from './Room';
 import Peer from 'peerjs';
-import GUM from '../js/GUM.js';
+import GUM from '../js/GUM';
 import UuidV4 from 'uuid/v4'
 
 const clipboard = require('electron').clipboard;

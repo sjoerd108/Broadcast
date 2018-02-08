@@ -62,9 +62,9 @@
 </template>
 
 <script>
-import SourcePicker from './SourcePicker.vue';
+import SourcePicker from './SourcePicker';
 
-import * as Mdc from 'material-components-web/dist/material-components-web.js';
+import * as Mdc from 'material-components-web/dist/material-components-web';
 
 const os = require('os');
 

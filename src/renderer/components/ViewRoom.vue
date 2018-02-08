@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import Room from './Room.vue';
+import Room from './Room';
 
 import Peer from 'peerjs';
 import UuidV4 from 'uuid/v4'
