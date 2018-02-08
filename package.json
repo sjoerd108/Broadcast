@@ -1,6 +1,6 @@
 {
     "name": "broadcast",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "description": "Easily broadcast your screen and play projector games.",
     "author": "Sjoerd Dal <sjoerddal108@gmail.com>",
     "private": true,
