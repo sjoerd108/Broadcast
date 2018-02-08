@@ -30,7 +30,7 @@
         "forge": {
             "make_targets": {
                 "win32": [
-                    "squirrel"
+                    "squirrel", "zip"
                 ],
                 "darwin": [
                     "zip"
