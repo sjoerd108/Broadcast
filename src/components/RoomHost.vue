@@ -1,7 +1,7 @@
 <template>
 <div>
     <room-setup v-show="inSetup" @setupDone="initStream"></room-setup>
-    <room :stream="stream" :isHost="true" class="room" v-show="!inSetup"></room>
+    <room :roomSettings="roomSettings" :stream="stream" :isHost="true" class="room" v-show="!inSetup"></room>
 </div>
 </template>
 
@@ -62,7 +62,9 @@ export default {
             peer.on('connection', (dataConnection) => {
                 dataConnection.on('open', () => {
                     console.log('Sending settings...');
-                    dataConnection.send(self.roomSettings);
+                    dataConnection.send({
+                        roomSettings: self.roomSettings
+                    });
                 });
                 peer.call(dataConnection.peer, this.stream);
             });
