@@ -1,12 +1,12 @@
 //jshint esversion: 6
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import App from './App.vue';
+import App from './App';
 import * as Mdc from 'material-components-web/dist/material-components-web.min.js';
 
-import Welcome from './components/Welcome.vue';
-import RoomHost from './components/RoomHost.vue';
-import ViewRoom from './components/ViewRoom.vue';
+import Welcome from './components/Welcome';
+import RoomHost from './components/RoomHost';
+import ViewRoom from './components/ViewRoom';
 
 Vue.use(VueRouter);
 

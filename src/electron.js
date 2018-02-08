@@ -17,10 +17,12 @@ function createWindow() {
         show: false
     });
 
-    mainWindow.once('ready-to-show', mainWindow.show);
+    mainWindow.once('ready-to-show', () => {
+        mainWindow.show();
+    });
 
     mainWindow.loadURL(url.format({
-        pathname: path.join(__dirname, 'electron.html'),
+        pathname: path.join(__dirname, './renderer/index.html'),
         protocol: 'file:',
         slashes: true
     }));
